@@ -16,10 +16,10 @@ const register = async (request, response) => {
 
     await user.save()
 
-    response.status(200).send({ user })
+    response.status(200).send({ user, "message": "User created successfully" })
 
   } catch (e) {
-    response.status(500).send({error: e})
+    response.status(500).send({error: e, "message":"Email already taken"})
   }
 }
 

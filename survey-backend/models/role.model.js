@@ -11,7 +11,7 @@ const rolesSchema = new mongoose.Schema({
 
 const Role = mongoose.model("Roles", rolesSchema)
 
-const createRole = async () => {
+const createRole = async () => { // I did this just to insert default roles from here. Could have done it from mongoDB Compass
   try {
     
     // chack if types already exist
