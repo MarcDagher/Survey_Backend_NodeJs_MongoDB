@@ -37,10 +37,10 @@ const userSchema = new mongoose.Schema({
 
     // completed_surveys: [{type: mongoose.Schema.Types.ObjectId, ref:Surveys}], // each value in the array is a foreign key to a survey
     
-    // role_id : {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref: 'Roles' // references the Roles model
-    // }
+    role_id : {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Roles' // references the Roles model
+    }
 })
 
 userSchema.pre("save", async function (next) { // pre-save is a middleware executed before saving a document to the database

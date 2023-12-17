@@ -1,6 +1,7 @@
 const User = require("../models/user.model")
 const jwt = require("jsonwebtoken")
 const bcrypt = require ("bcrypt")
+const { Role } = require("../models/role.model")
 
 const register = async (request, response) => {
   const {first_name, last_name, email, password, birthday} = request.body
@@ -9,7 +10,9 @@ const register = async (request, response) => {
   } 
 
   try {
-    const user =  new User({ first_name, last_name, email, password, birthday })
+    const roleUser = await Role.findOne({ role: "user" }) 
+
+    const user = new User({ first_name, last_name, email, password, birthday, role_id: roleUser })
 
     await user.save()
 

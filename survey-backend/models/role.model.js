@@ -1,8 +1,8 @@
 const mongoose = require("mongoose")
 
-const rolesSchema = new mpngoose.Schema({
+const rolesSchema = new mongoose.Schema({
   role : {
-    type: string,
+    type: String,
     required : true,
     unique : true,
     trim: true
@@ -10,4 +10,30 @@ const rolesSchema = new mpngoose.Schema({
 })
 
 const Role = mongoose.model("Roles", rolesSchema)
-module.exports = Role
+
+const createRole = async () => {
+  try {
+    
+    // chack if types already exist
+    const adminRole = await Role.find({ role: "admin" } )
+    const userRole = await Role.find({ role: "user" } )
+
+    if (!adminRole[0]){
+      console.log(adminRole)
+      console.log("Admin created successfuly")
+      await Role.create({ role: "admin" })
+    } 
+    
+    if (!userRole[0]){
+      console.log(userRole)
+      console.log("User created successfuly")
+      await Role.create({ role: "user" })
+    }
+
+    
+  } catch (error) {
+    console.log("Error creating role ", error )
+  }
+}
+
+module.exports = { Role, createRole }
