@@ -1,20 +1,19 @@
-const mongoose = require("mongoose")
-const { Survey }= require("../models/survey.model")
+const  Survey = require("../models/survey.model")
 
 const createSurvey = async (request, response) => {
 
-  // const {title} = request.body
+  const {title} = request.body
+  console.log(request.body)
+  if (!title) {response.status(400).send({message: "Title must be included"})}
 
-  // if (!title) {return response.status(400).send({message: "Title must be included"})}
+  try{
+    const survey = new Survey({ title })
+    await survey.save()
+    response.status(200).send({survey})
 
-  // try{
-  //   const survey = new Survey({ title })
-  //   await survey.save()
-  //   response.status(200).send({survey})
-
-  // } catch (e) {
-  //   response.status(500).send({error:e})
-  // }
+  } catch (e) {
+    response.status(500).send({error:e})
+  }
 }
 
 module.exports = { createSurvey }

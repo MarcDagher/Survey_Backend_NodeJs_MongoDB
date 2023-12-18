@@ -4,12 +4,12 @@ const surveySchema = new mongoose.Schema({
 
   title : {
     type: String,
-    require: true,
+    required: true,
     trim: true
   },
 
 })
 
-const Survey = mongoose.model("Survey", surveySchema)
+const Survey = mongoose.model("surveys", surveySchema)
 
 module.exports = Survey
