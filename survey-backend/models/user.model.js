@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 const bcrypt = require("bcrypt")
 
+
 const userSchema = new mongoose.Schema({
     first_name : {
       type : String,
@@ -34,8 +35,6 @@ const userSchema = new mongoose.Schema({
     image : { type: String }, // file path or url
 
     birthday : { type: Date, required: true },
-
-    // responses: [{type: mongoose.Schema.Types.ObjectId, ref:Surveys}], // each value in the array is a foreign key to a survey
     
     role_id : {
       type: mongoose.Schema.Types.ObjectId,
