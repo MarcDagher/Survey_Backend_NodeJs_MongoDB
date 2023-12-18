@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
 
     birthday : { type: Date, required: true },
 
-    // completed_surveys: [{type: mongoose.Schema.Types.ObjectId, ref:Surveys}], // each value in the array is a foreign key to a survey
+    // responses: [{type: mongoose.Schema.Types.ObjectId, ref:Surveys}], // each value in the array is a foreign key to a survey
     
     role_id : {
       type: mongoose.Schema.Types.ObjectId,
