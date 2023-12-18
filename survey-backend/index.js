@@ -11,10 +11,15 @@ const authRoutes = require("./routes/auth.routes") // routes for login - signup
 app.use("/auth", authRoutes) // instead of giving app the entire route. we give it the router which contains them all
 
 
+// user
+const userRoutes = require("./routes/user.routes")
+app.use("/user", userRoutes)
+
 // admin
 const  adminRoutes  = require ("./routes/admin.routes")
 const { authMiddleware } = require ("./middlewares/authMiddleware")
 app.use("/admin", authMiddleware, adminRoutes)
+
 
 app.listen(8000, () => { // starts the serve and listens on port 8000
   console.log("Server on port: " , 8000)
