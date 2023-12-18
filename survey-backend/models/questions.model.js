@@ -10,7 +10,6 @@ const quesitionSchema = mongoose.Schema({
 
   options: {
     type: Array,
-    default: []
   },
 
   survey_id : {
