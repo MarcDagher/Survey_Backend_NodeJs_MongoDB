@@ -14,7 +14,7 @@ const quesitionSchema = mongoose.Schema({
 
   survey_id : {
     type: mongoose.Schema.ObjectId,
-    ref: Survey
+    ref: 'surveys'
   }
 })
 

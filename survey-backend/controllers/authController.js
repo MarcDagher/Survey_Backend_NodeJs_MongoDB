@@ -35,7 +35,7 @@ const login = async (request, response) => {
   const isValidPassword = await bcrypt.compare(password, user.password)
   if (!isValidPassword) return response.status(400).send({ message: "Invalid username/password" })
 
-  const { password: hashedPassword, _id, ...userDatails } = user.toJSON()
+  const { password: hashedPassword, ...userDatails } = user.toJSON()
 
   // generate JWT token
   const token = jwt.sign({ ...userDatails }, 'secret_key') // payload, secret, optional: algorithm, expiresIn

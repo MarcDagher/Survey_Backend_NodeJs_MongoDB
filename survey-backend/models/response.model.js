@@ -1,16 +1,14 @@
 const mongoose = require("mongoose")
-const User = require("./user.model")
-const { Questions } = require("./questions.model")
 
 const responseSchema = mongoose.Schema({
   user_id : {
     type: mongoose.Schema.ObjectId,
-    ref: User
+    ref: 'User'
   },
 
   question_id : {
     type: mongoose.Schema.ObjectId,
-    ref: Questions
+    ref: 'Questions'
   },
 
   response: {
