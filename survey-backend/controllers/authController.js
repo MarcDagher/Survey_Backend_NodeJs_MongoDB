@@ -13,7 +13,7 @@ const register = async (request, response) => {
     const roleUser = await Role.findOne({ role: "user" }) 
 
     const user = new User({ first_name, last_name, email, password, birthday, role_id: roleUser })
-
+  
     await user.save()
 
     response.status(200).send({ user, "message": "User created successfully" })
@@ -39,9 +39,10 @@ const login = async (request, response) => {
 
   // generate JWT token
   const token = jwt.sign({ ...userDatails }, 'secret_key') // payload, secret, optional: algorithm, expiresIn
-  response.status(200).send({
-    user: userDatails,
-    token
+  return response.status(200).send({
+    userDatails,
+    token: token,
+    message: "Success"
   })
 }
 

@@ -1,6 +1,7 @@
 .container{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   max-width: 400px;
@@ -19,7 +20,15 @@
   color: var(--red);
 }
 
-.container > input{
+.inputs{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.inputs > input{
   width: 100%;
   max-width: 280px;
   height: 50px;
@@ -29,15 +38,22 @@
   outline: 1px solid var(--dark);
 }
 
-.container > input:hover{
+.inputs > input:hover{
   background-color: rgb(238, 232, 232);
 }
 
+.buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
 
-.container > p:last-child{
+.buttons > p:last-child{
   color: var(--red);
 }
 
-.container > p:last-of-type:hover{
+.buttons > p:last-of-type:hover{
   cursor: pointer;
 }
+

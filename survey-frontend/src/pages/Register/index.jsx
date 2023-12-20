@@ -2,6 +2,7 @@ import { useState } from "react"
 import "./register.css"
 import Button from '../../components/button'
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 const Register = ( ) => {
 
@@ -13,10 +14,10 @@ const Register = ( ) => {
     birthday:""
    })
    const [success, setSuccess] = useState("")
+   const navigate = useNavigate()
   
    const handleChange = (name, value) => {
     setFormData({...formData, [name]:value})
-    console.log(formData)
    }
 
 
@@ -52,6 +53,8 @@ const Register = ( ) => {
       <input type="date" name="birthday" onChange={(e) => handleChange(e.target.name, e.target.value)}
       placeholder="Password"/>
       <Button text={"Create Account"} handleSubmit={() => handleSubmit({...formData})}/>
+
+      <p onClick={() => navigate("/login")}>Already have an account? Sign In</p>
    </div>
 
     </>
