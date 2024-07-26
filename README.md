@@ -1,2 +1,1 @@
-<h1>Node.js and MongoDB Survey</h1>
-<strong>Task:</strong> Build a survey backend using MongoDB and Node.js
+<h1>Create APIs for a survey app using Node.js and MongoDB</h1>
